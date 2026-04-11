@@ -1,0 +1,32 @@
+def precal():
+    arr=[0]*(1000000+1)
+    
+    for i in range(2,1000000+1,1):
+        if arr[i]==0:
+            for j in range(i,1000000+1,i):
+                if arr[j]==0:
+                    arr[j]=i
+    return arr
+def solve(n):
+    arr=precal()
+    res=1
+    
+    while arr[n]!=0:
+        s=arr[n]
+        alpha=1
+        while n%s==0:
+            alpha+=1
+            n//=s
+
+            
+        res*=alpha
+    return res
+
+if __name__=="__main__":
+    print(solve(10))
+    
+
+
+
+
+        
