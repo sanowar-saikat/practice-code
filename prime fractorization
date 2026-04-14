@@ -1,0 +1,23 @@
+def smallprmdiv(n):
+    arr=[0]*(n+1)
+    for i in range(2,int(n+1)):
+        if arr[i]==0:
+            for j in range(i,n+1,i):
+                if arr[j]==0:
+                    arr[j]=i
+    return arr
+def primefrac(n):
+    arr=smallprmdiv(n)
+    
+    
+    
+    res=[]
+    while arr[n]!=0:
+        s=arr[n]
+        while n%s==0:
+            n//=s
+        res.append(s)
+    return res
+if __name__=="__main__":
+    
+    print(prime(3))
