@@ -1,46 +1,14 @@
-def prmfrac(n):
+def totien(n):
     arr=[0]*(n+1)
-    for i in range(2,int(n+1)):
-        if arr[i]==0:
-            for j in range(i,n+1,i):
-                if arr[j]==0:
-                    arr[j]=i
-    return arr
-"""def prime(n):
-    arr=[1]*(n+1)
-    for i in range(3,int(n**0.5+1),2):
-        if arr[i]==1:
-            for j in range(i*i,n+1,2*i):
-                arr[j]=0
-    ans=[]
-    ans.append(2)
-    for i in range(3,n+1,2):
-        if arr[i]!=0:
-            ans.append(i)
-    return ans"""
-def prime(n):
-    arr=prmfrac(n)
-    ans=[]
+    for i in range(n+1):
+        arr[i]=i
     for i in range(2,n+1):
         if arr[i]==i:
-            ans.append(i)
-    return ans
-def totient(n):
-    arr=prmfrac(n)
-    prm=prime(n)
-    
-    
-    if n in prm:
-        return n-1
-    res=n
-    while arr[n]!=0:
-        s=arr[n]
-        while n%s==0:
-            n//=s
-        res*=(1-(1/s))
-    return int(res)
-
- 
+            arr[i]=i-1
+            for j in range(i*i,n+1,i):
+                arr[j]=int((arr[j]/i)*(i-1))
+    return arr[n]
 if __name__=="__main__":
+    print(totien(12))
     
-    print(totient(3))
+
