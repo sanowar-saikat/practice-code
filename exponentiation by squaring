@@ -1,0 +1,7 @@
+res=1
+a%=Mod
+while(exp>0):
+    if (exp%2==1):
+          res=(res*a)%Mod
+    a=a*a
+    exp//=2
