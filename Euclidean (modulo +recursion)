@@ -1,0 +1,16 @@
+def gcd(a,b):
+    while (b!=0):
+        r=a%b
+        a=b
+        b=r
+    return a
+if __name__=="__main__":
+    print(gcd(45,23))
+-----------OR------------
+def gcd_rec(a,b):
+    if b!=0:
+        return gcd_rec(b,a%b)
+    else:
+        return a
+if __name__=="__main__":
+    print(gcd_rec(45,23))
